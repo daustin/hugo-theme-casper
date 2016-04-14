@@ -1,9 +1,8 @@
 {{ partial "header.html" . }}
 {{ $baseurl := .Site.BaseURL }}
-{{ $section_name := .Scratch.Get "section_name" }}
 
-{{if .Scratch.Get "section_cover"}}
-  <header class="main-header tag-head" style="background-image: url({{ $baseurl }}{{.Scratch.Get "section_cover"}})">
+{{if .Scratch.Get "custom_cover"}}
+  <header class="main-header tag-head" style="background-image: url({{ $baseurl }}{{.Scratch.Get "custom_cover"}})">
 {{else if .Site.Params.cover}}
   <header class="main-header tag-head" style="background-image: url({{ $baseurl }}{{.Site.Params.cover}})">
 {{else}}
@@ -25,13 +24,13 @@
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            {{if .Scratch.Get "section_title"}}
-              <h1 class="page-title">{{ .Scratch.Get "section_title"}}</h1>
+            {{if .Scratch.Get "custom_title"}}
+              <h1 class="page-title">{{ .Scratch.Get "custom_title"}}</h1>
             {{ else }}
               <h1 class="page-title">{{ .Title }}</h1>
             {{ end }}
             <h2 class="page-description">
-              {{ .Scratch.Get "section_description"}}
+              {{ .Scratch.Get "custom_description"}}
             </h2>
         </div>
     </div>
@@ -40,14 +39,14 @@
 <main class="content" role="main">
 
   {{ range $.Data.Pages }}
-      {{if eq .Type "section_content" }}
+      {{if eq .Type "custom_list_content" }}
       <div class="index-content post">
       {{.Content}}
       </div>
       {{end}}
   {{ end }}
 
-  {{ $list := where .Data.Pages "Type" "!=" "section_content" }}
+  {{ $list := where .Data.Pages "Type" "!=" "custom_list_content" }}
 
   {{ $paginator := .Paginate ( $list ) }}
 
