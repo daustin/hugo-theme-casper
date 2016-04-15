@@ -1,0 +1,16 @@
+{{ $tax_value := .Title }}
+
+{{ if eq $tax_value "first" }}
+{{ .Scratch.Set "custom_title" "my firsts title" }}
+{{ .Scratch.Set "custom_cover" "images/pic.jpg" }}
+{{ .Scratch.Set "custom_description" "firsts from each section" }}
+{{ end }}
+
+{{ if eq $tax_value "second" }}
+{{ .Scratch.Set "custom_title" "my seconds title" }}
+{{ .Scratch.Set "custom_cover" "images/pic.jpg" }}
+{{ .Scratch.Set "custom_description" "seconds from each section" }}
+{{ end }}
+
+
+{{ partial "list.html" . }}
