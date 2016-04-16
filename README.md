@@ -7,7 +7,12 @@ theme source: https://github.com/daustin/hugo-theme-casperilla.git
 
 theme demo blog: https://github.com/daustin/hugo-theme-casperilla-demo.git
 
-![Hugo Casper Theme screenshot](https://raw.githubusercontent.com/vjeantet/hugo-theme-casper/master/images/screen.png)
+![Hugo Casperilla Theme Homepage](https://raw.githubusercontent.com/daustin/hugo-theme-casperilla-demo/master/screenshots/homepage.png)
+
+![Hugo Casperilla Theme Section List](https://raw.githubusercontent.com/daustin/hugo-theme-casperilla-demo/master/screenshots/section.png)
+
+![Hugo Casperilla Theme Tag List](https://raw.githubusercontent.com/daustin/hugo-theme-casperilla-demo/master/screenshots/tag.png)
+
 
 ## Features
 
