@@ -107,7 +107,7 @@ theme = "casperilla"
 
 ```
 
-Example : [config.toml](https://github.com/vjeantet/vjeantet.fr/blob/master/config.toml)
+Example : [config.toml](https://github.com/daustin/hugo-theme-casperilla-demo.git/blob/master/config.toml)
 
 ## Multiple authors configuration
 
