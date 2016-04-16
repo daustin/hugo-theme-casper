@@ -1,17 +1,18 @@
-name = "Casper"
+name = "Casperilla"
 license = "MIT"
-licenselink = "https://github.com/vjeantet/hugo-theme-casper/blob/master/LICENSE.md"
-description = "Casper theme from Ghost Foundation"
-homepage = "http://vjeantet.fr/"
+licenselink = "https://github.com/daustin/hugo-theme-casperilla/blob/master/LICENSE.md"
+description = "Casperilla theme"
+homepage = "https://github.com/daustin/hugo-theme-casperilla"
 tags = ["blog"]
-features = ["disqus", "google analytics","share"]
+features = ["disqus", "google analytics","share", "custom list content"]
 min_version=0.14
 
 [author]
-  name = "Valere JEANTET"
-  homepage = "http://vjeantet.fr"
+  name = "David Austin"
+  homepage = "https://github.com/daustin"
+  repo = "https://github.com/daustin"
 
 [original]
   name = "Casper"
-  homepage = "https://github.com/TryGhost/Casper"
-  repo = "https://github.com/TryGhost/Casper"
+  homepage = "http://vjeantet.fr"
+  repo = "https://github.com/vjeantet/hugo-theme-casper"
