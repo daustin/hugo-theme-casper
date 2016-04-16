@@ -1,11 +1,11 @@
-# CASPER theme for hugo
+# CASPERilla theme for hugo
     
+Casperilla is a single-column theme for [Hugo](http://gohugo.io/).
+Forked from [Casper theme](https://github.com/TryGhost/Casper)
 
-Casper is a single-column theme for [Hugo](http://gohugo.io/).
-Ported from [Casper theme for Ghost ](https://github.com/TryGhost/Casper)
+theme source: https://github.com/daustin/hugo-theme-casperilla.git
 
-blog demo : http://vjeantet.fr
-blog source : https://github.com/vjeantet/vjeantet.fr
+theme demo blog: https://github.com/daustin/hugo-theme-casperilla-demo.git
 
 ![Hugo Casper Theme screenshot](https://raw.githubusercontent.com/vjeantet/hugo-theme-casper/master/images/screen.png)
 
@@ -19,10 +19,15 @@ blog source : https://github.com/vjeantet/vjeantet.fr
 * Tagging
 * Pagination
 * Menu
+* Custom cover, title, description, and content for section list
+* Custom cover, title, description for tag list
 
 # Theme usage and asumptions
-* All blog posts are in the ```post``` folder (```content/post```)
-* The homepage displays a paginated list of contents from the post Section (other contents may be added to main menu, see bellow)
+* The homepage displays a paginated list of contents from the post Section (other contents may be added to main menu, see below)
+* Place content for each section in their respective folders
+* Content with type 'index' will be included in the home page
+* Content with type 'custom_list_content' in each of the section folders will only be included on the section list page
+* Cover, Title, Description vars for section and tag lists are set via Scratch in their respective layouts (see below)
 
 # Installation
 
@@ -30,42 +35,70 @@ blog source : https://github.com/vjeantet/vjeantet.fr
 
     mkdir themes
     cd themes
-    git clone https://github.com/vjeantet/hugo-theme-casper casper
+    git clone https://github.com/daustin/hugo-theme-casperilla.git casperilla
 
 ## Build your website with this theme
 
-    hugo server -t casper
+    hugo server -t casperilla
 
 # Configuration
 
 **config.toml**
 
 ``` toml
-BaseUrl= "http://example.com/"
-LanguageCode= "fr-FR"
-Title= "My blog is awesome"
+
+BaseUrl= "http://localhost:1313"
+LanguageCode= "en-US"
+Title= "City Food"
+paginate = 5
+canonifyurls = true
+pluralizelisttitles = false
 paginate = 5
 DisqusShortname = "YOUR_SHORT_NAME_HERE"
 Copyright = "All rights reserved - 2015"
-canonifyurls = true
+theme = "casperilla"
 
 [params]
-  description = "this is my description"
-  cover = "images/cover.jpg"
-  author = "Valère JEANTET"
-  authorlocation = "Paris, France"
-  authorwebsite = "http://vjeantet.fr"
-  bio= "my bio"
+  description = "City Food is Tasty"
+  cover = "images/index_cover.jpg"
+  author = "Guess Who"
+  authorlocation = "Philly, PA"
+  authorwebsite = "http://github.com"
+  bio= "author bio"
   logo = "images/logo.png"
   googleAnalyticsUserID = "UA-79101-12"
   # Optional RSS-Link, if not provided it defaults to the standard index.xml
   RSSLink = "http://feeds.feedburner.com/..." 
-  githubName = "vjeantet"
-  twitterName = "vjeantet"
+  githubName = "daustin"
+  twitterName = "daustin"
   # facebookName = ""
   # linkedinName = ""
   # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
   hideHUGOSupport = false
+
+[[menu.main]]
+  name = "Main"
+  weight = -110
+  identifier = "main"
+  url = "/"
+
+[[menu.main]]
+  name = "New York"
+  weight = -100
+  identifier = "new_york"
+  url = "/new_york"
+
+[[menu.main]]
+  name = "Chicago"
+  weight = -95
+  identifier = "chicago"
+  url = "/chicago"
+
+[[menu.main]]
+  name = "Philadelphia"
+  weight = -90
+  identifier = "phila"
+  url = "/philadelphia"
 
 ```
 
@@ -150,14 +183,72 @@ menu = ""           # set "main" to add this content to the main menu
 Contents here
 ```
 
-## Create new content based with default metadata from this theme
-You can easyly create a new content with all metadatas used by this theme, using this command 
+## Create a section "mysection" with custom vars and content
+
+Set up list content file and content for a first post
 ```
-hugo new -t casper post/my-post.md
+hugo new -k custom_list_content mysection/list_content.md
+hugo new mysection/first_post.md
+cp themes/layouts/section/mysection.html ./layouts/section/mysection.html
+```
+
+In the layout you can specify custom cover, title, description for mysection list
+```
+{{ .Scratch.Set "custom_title" "my custom section title" }}
+{{ .Scratch.Set "custom_cover" "images/pic.jpg" }}
+{{ .Scratch.Set "custom_description" "my custom section description" }}
+
+{{ partial "list.html" . }}
+
+```
+
+The section list will display content from type custom_list_content in the heading, and treat all other types as normal posts
+```
++++
+date = "2016-04-15T19:41:40-04:00"
+draft = false
+type = "custom_list_content"
++++
+
+### Chicago food list content
+
+```
+
+## Create a taxonomy (tag) layout
+
+Set up tag layout file
+```
+cp themes/layouts/taxonomy/mytax.html ./layouts/section/tag.html
+```
+
+In the layout you can specify custom cover, title, description for tag list. You can see here there is different info depending on what the tag values are.
+```
+{{ $tax_value := .Title }}
+
+{{ if eq $tax_value "first" }}
+{{ .Scratch.Set "custom_title" "my firsts title" }}
+{{ .Scratch.Set "custom_cover" "images/pic.jpg" }}
+{{ .Scratch.Set "custom_description" "firsts from each section" }}
+{{ end }}
+
+{{ if eq $tax_value "second" }}
+{{ .Scratch.Set "custom_title" "my seconds title" }}
+{{ .Scratch.Set "custom_cover" "images/pic.jpg" }}
+{{ .Scratch.Set "custom_description" "seconds from each section" }}
+{{ end }}
+
+
+{{ partial "list.html" . }}
+
+```
+
+
+## Create new content based with default metadata from this theme
+You can easily create a new content with all metadatas used by this theme, using this command 
+```
+hugo new -t casperilla post/my-post.md
 ```
 
 # Contact me
 
-:beetle: open an issue in github
-
-:bird: [https://twitter.com/vjeantet](https://twitter.com/vjeantet)
+[https://github.com/daustin](https://github.com/daustin)
