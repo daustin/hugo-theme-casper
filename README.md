@@ -1,7 +1,7 @@
 # CASPERilla theme for hugo
     
 Casperilla is a single-column theme for [Hugo](http://gohugo.io/).
-Forked from [Casper theme](https://github.com/TryGhost/Casper)
+Forked from [Vjeantet's Casper Theme](https://github.com/vjeantet/hugo-theme-casper)
 
 theme source: https://github.com/daustin/hugo-theme-casperilla.git
 
@@ -210,7 +210,7 @@ draft = false
 type = "custom_list_content"
 +++
 
-### Chicago food list content
+### Mysection list content
 
 ```
 
