@@ -249,12 +249,12 @@ h6 {
 }
 
 a {
-    color: #4A4A4A;
+    color: #3f7fdb;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #111;
+    color: #999;
 }
 
 p, ul, ol, dl {
@@ -883,10 +883,10 @@ body.nav-opened .menu-button .word {
     margin: 0;
     font-size: 2rem;
     line-height: 1.5em;
-    font-weight: 400;
+    font-weight: 600;
     font-family: "Merriweather", serif;
     letter-spacing: 0.01rem;
-    color: rgba(255,255,255,0.8);
+    color: #fff;
 }
 
 .no-cover.main-header {
@@ -959,7 +959,7 @@ body:not(.post-template) .post-title {
 }
 
 .post-title a {
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 .post-excerpt p {
