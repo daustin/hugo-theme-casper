@@ -835,7 +835,7 @@ body.nav-opened .nav {
     line-height: 35px;
     white-space: nowrap;
     border-radius: 3px;
-    background: rgba(0,0,0,0.1);
+    background: rgba(0,0,0,0.4);
     transition: all 0.5s ease;
 }
 .menu-button:focus {
@@ -845,6 +845,15 @@ body.nav-opened .nav {
     font-size: 12px;
     margin-right: 6px;
 }
+
+.title-shaded {
+    border: #bfc8cd 1px solid;
+    opacity: 1;
+    color: #9EABB3;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.4);
+}
+
 
 body.nav-opened .menu-button {
     padding: 0 12px;
