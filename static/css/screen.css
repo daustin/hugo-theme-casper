@@ -1658,10 +1658,11 @@ body:not(.post-template) .post-title {
 
     .menu-button {
         padding: 0 5px;
-        border-radius: 0;
-        border-color: transparent;
-        color: #2e2e2e;
-        background: transparent;
+        border: #bfc8cd 1px solid;
+        opacity: 1;
+        color: #9EABB3;
+        border-radius: 3px;
+        background: rgba(0,0,0,0.4);
     }
     .menu-button:hover {
         color: #2e2e2e;
