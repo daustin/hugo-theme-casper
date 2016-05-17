@@ -1052,6 +1052,16 @@ body:not(.post-template) .post-title {
     white-space: nowrap;
 }
 
+.post-readtime {
+    display: inline-block;
+    margin-right: 8px;
+    padding-right: 12px;
+    border-right: #d5dbde 1px solid;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    white-space: nowrap;
+}
+
 .user-image {
     position: absolute;
     top: 0;
@@ -1107,6 +1117,12 @@ body:not(.post-template) .post-title {
 }
 
 .post-template .post-date {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.post-template .post-readtime {
     padding: 0;
     margin: 0;
     border: none;
@@ -1721,7 +1737,7 @@ body:not(.post-template) .post-title {
         line-height: 1.65em;
     }
 
-    .post-date {
+    .post-readtime {
         display: none;
     }
 
@@ -1730,6 +1746,10 @@ body:not(.post-template) .post-title {
     }
 
     .post-template .post-date {
+        display: inline-block;
+    }
+
+    .post-template .post-readtime {
         display: inline-block;
     }
 
