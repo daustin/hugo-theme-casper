@@ -1,21 +1,26 @@
 {{ if or .PrevInSection .NextInSection }}
 <nav id="article-nav">
-    {{ if .PrevInSection }}
-    <a href="{{ .PrevInSection.Permalink }}" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-          &laquo;Prev
-      </strong>
-      <div class="article-nav-title">{{ .PrevInSection.Title }}</div>
-    </a>
+    {{ if .NextInSection }}
+      {{ if ne .NextInSection.Type "custom_list_content"}}
+      <a href="{{ .NextInSection.Permalink }}" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">
+        Next&raquo;
+        </strong>
+        <div class="article-nav-title">{{ .NextInSection.Title }}</div>
+      </a>
+      {{ end }}
     {{ end }}
 
-    {{ if .NextInSection }}
-    <a href="{{ .NextInSection.Permalink }}" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-      Next&raquo;
-      </strong>
-      <div class="article-nav-title">{{ .NextInSection.Title }}</div>
-    </a>
+    {{ if .PrevInSection  }}
+      {{ if ne .PrevInSection.Type "custom_list_content"}}
+      <a href="{{ .PrevInSection.Permalink }}" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">
+            &laquo;Prev
+        </strong>
+        <div class="article-nav-title">{{ .PrevInSection.Title }}</div>
+      </a>
+      {{ end }}
     {{ end }}
+
 </nav>
 {{ end }}
